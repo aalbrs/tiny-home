@@ -11,7 +11,7 @@ export default {
         }
     },
     // add main content here
-    posts: [
+    cards: [
         {
             title: "LinkedIn",
             link: "https://www.linkedin.com/in/d-aalbers",
@@ -44,14 +44,14 @@ export default {
                 "background-color": 'rgba(215, 88, 0, 0.8)'
             }
         },   
-        // {
-        //     title: "Next item",
-        //     link: null,
-        //     description: "My description",
-        //     style: {
-        //         "background-color": 'rgb(70, 70, 70, 0.85)'
-        //     }
-        // }
+        {
+            title: "Vastnear",
+            link: "https://www.vastnear.com/",
+            description: "For explorers. Coming soon.",
+            style: {
+                "background-color": 'rgb(70, 70, 70, 0.85)'
+            }
+        }
     ]
     
 }

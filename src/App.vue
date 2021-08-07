@@ -18,14 +18,14 @@
                 </div>
 
                 <!-- main content -->
-                <div class="post-container">
-                    <template v-for="post in content.posts" :key="post.id">
+                <div class="card-container">
+                    <template v-for="card in cards" :key="card.id">
                         <!-- card items -->
-                        <div class="post" v-bind:style="post.style">
-                            <a target="_blank" :href="post.link">
-                                <div class="post-content">
-                                    <div class="title">{{ post.title }}</div>
-                                    <p>{{ post.description }}</p>
+                        <div class="card" v-bind:style="card.style">
+                            <a target="_blank" :href="card.link">
+                                <div class="card-content">
+                                    <div class="title">{{ card.title }}</div>
+                                    <p>{{ card.description }}</p>
                                 </div>
                             </a>
                         </div>
@@ -53,12 +53,13 @@ export default {
     name: "App",
     components: {},
     setup() {
+        // get site configuration and apply
         const content = reactive(siteContent);
-        
+        // apply page title
         if (content.header.title !== null) {
             document.title = content.header.title;
         }
-
+        // apply theme as class
         const appClass = computed(() => {
             return (
                 (content.theme || "light") +
@@ -68,9 +69,19 @@ export default {
                     : "")
             );
         });
+
+        // apply content/cards
+        const cards = computed(() => {
+            let cardIndex = 0;
+            return content.cards.map((card) => {
+                card["id"] = cardIndex;
+                return card;
+            });
+        });
         
         return {
             content,
+            cards,
             appClass
         }
 
@@ -128,7 +139,7 @@ div {
     a {
         color: $light-link-colour;
     }
-    .post {
+    .card {
         background-color: rgba($color: lightblue, $alpha: 0.3);
     }
 }
@@ -138,7 +149,7 @@ div {
     a {
         color: $dark-link-colour;
     }
-    .post {
+    .card {
         background-color: rgba($color: grey, $alpha: 0.6);
     }
 }
@@ -206,7 +217,7 @@ div {
     padding: 0 0 30px 0;
 
     // responsive grid layout set on container
-    .post-container {
+    .card-container {
         display: grid;
         grid-column-gap: 20px;
         grid-row-gap: 20px;
@@ -217,12 +228,12 @@ div {
     }
 
     // set base post style
-    .post {
+    .card {
         text-decoration: none;
         a {
             text-decoration: none;
         }
-        .post-content {
+        .card-content {
             padding: 15px;   
             .title {
                 font-size: 1.4em;
