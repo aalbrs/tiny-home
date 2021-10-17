@@ -22,8 +22,8 @@ export default {
         },
         {
             title: "Code",
-            link: "https://gitlab.com/users/aalbs/projects",
-            description: "View projects on GitLab",
+            link: "https://github.com/aalbrs?tab=repositories",
+            description: "View projects on GitHub",
             style: {
                 "background-color": 'rgba(130, 50, 80, 0.6)'
             }

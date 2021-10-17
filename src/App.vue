@@ -35,9 +35,9 @@
             </div>
 
             <div id="footer">
-                <a href="https://gitlab.com/aalbs/tiny-home" target="_blank"
-                    >View source on GitLab</a
-                >
+                <a href="https://github.com/aalbrs/tiny-home" target="_blank">
+                    View source on GitHub
+                </a>
             </div>
         </div>
     </div>
