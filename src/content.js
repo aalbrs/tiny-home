@@ -44,14 +44,7 @@ export default {
                 "background-color": 'rgba(215, 88, 0, 0.8)'
             }
         },   
-        {
-            title: "Vastnear",
-            link: "https://www.vastnear.com/",
-            description: "For explorers. Coming soon.",
-            style: {
-                "background-color": 'rgb(70, 70, 70, 0.85)'
-            }
-        }
+        
     ]
     
 }
