@@ -4,10 +4,7 @@
             <div class="app-content">
                 <div id="nav">
                     <!-- page title -->
-                    <div
-                        class="site-labels"
-                        v-bind:style="content.header.style"
-                    >
+                    <div class="site-labels" v-bind:style="content.header.style">
                         <div class="label1">
                             {{ content.header.title }}
                         </div>
@@ -43,7 +40,7 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 // configuration
 import siteContent from "./content";
 import { computed, reactive } from 'vue';
@@ -73,13 +70,12 @@ export default {
 
         // apply content/cards
         const cards = computed(() => {
-            let cardIndex = 0;
-            return content.cards.map((card) => {
-                card["id"] = cardIndex;
-                return card;
+            return content.cards.map((card, cardIndex) => {
+                let indexedCard = { ...card, id: cardIndex }
+                return indexedCard;
             });
         });
-        
+
         return {
             content,
             cards,
@@ -109,6 +105,7 @@ html {
     margin: 0;
     padding: 0;
 }
+
 div {
     margin: 0;
     padding: 0;
@@ -137,19 +134,24 @@ div {
 #app.light {
     color: $light-colour;
     background-color: $light-background-colour;
+
     a {
         color: $light-link-colour;
     }
+
     .card {
         background-color: rgba($color: lightblue, $alpha: 0.3);
     }
 }
+
 #app.dark {
     color: $dark-colour;
     background-color: $dark-background-colour;
+
     a {
         color: $dark-link-colour;
     }
+
     .card {
         background-color: rgba($color: grey, $alpha: 0.6);
     }
@@ -172,7 +174,7 @@ div {
     width: 90%;
     max-width: 600px;
     padding: 30px 15px;
-    
+
     .site-labels {
         display: block;
 
@@ -180,6 +182,7 @@ div {
             font-size: 1.6em;
             line-height: 2.0em;
         }
+
         .label2 {
             font-size: 1.2em;
             line-height: 1.4em;
@@ -197,6 +200,7 @@ div {
     line-height: 40px;
     background-color: $light-background-colour;
     text-align: right;
+
     a {
         // makes link clickable at full height of footer
         display: inline-block;
@@ -231,19 +235,21 @@ div {
     // set base post style
     .card {
         text-decoration: none;
+
         a {
             text-decoration: none;
         }
+
         .card-content {
-            padding: 15px;   
+            padding: 15px;
+
             .title {
                 font-size: 1.4em;
             }
+
             p {
                 font-size: 1em;
             }
         }
     }
-}
-
-</style>
+}</style>
