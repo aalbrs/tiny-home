@@ -43,8 +43,7 @@ export default {
             style: {
                 "background-color": 'rgba(215, 88, 0, 0.8)'
             }
-        },   
-        
+        },      
     ]
     
 }

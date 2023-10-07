@@ -45,8 +45,8 @@
 
 <script>
 // configuration
-import siteContent from "@/content";
-import { computed, reactive } from '@vue/runtime-core';
+import siteContent from "./content";
+import { computed, reactive } from 'vue';
 
 
 export default {
@@ -59,6 +59,7 @@ export default {
         if (content.header.title !== null) {
             document.title = content.header.title;
         }
+
         // apply theme as class
         const appClass = computed(() => {
             return (
@@ -243,8 +244,6 @@ div {
             }
         }
     }
-
 }
-
 
 </style>
