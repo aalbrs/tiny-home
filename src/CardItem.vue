@@ -3,7 +3,10 @@
     <div class="card">
         <a target="_blank" :href="link">
             <div class="card-content">
-                <slot name="title"></slot>
+                <div class="top-row">
+                    <slot name="icon"></slot>
+                    <slot name="title"></slot>
+                </div>
                 <p><slot name="description"></slot></p>
             </div>
         </a>
@@ -11,6 +14,7 @@
 </template>
 
 <script setup lang="ts">
+
 
 defineProps<{
     link: string

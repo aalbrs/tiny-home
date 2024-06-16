@@ -153,6 +153,14 @@ div {
 
         .card-content {
             padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .top-row {
+                display: flex;
+                gap: 10px;
+            }
 
             .title {
                 font-size: 1.4em;
@@ -160,6 +168,7 @@ div {
 
             p {
                 font-size: 1em;
+                margin: 28px 0 0 0;
             }
         }
     }
